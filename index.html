@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Encabezado con color impactante */
+    /* Encabezado */
     header {
       background: linear-gradient(to right, #003366, #0059b3, #003366);
       display: flex;
@@ -50,10 +50,10 @@
     .titulo-izq h3 {
       font-size: 16px;
       font-style: italic;
-      color: #e6e6e6; /* gris claro elegante */
+      color: #e6e6e6; /* gris claro */
     }
 
-    /* Texto central impactante */
+    /* Texto central */
     .central-texto {
       text-align: center;
       padding: 30px 10px;
@@ -63,7 +63,7 @@
     .central-texto h2 {
       font-size: 34px;
       margin: 0;
-      color: #d40000; /* rojo intenso */
+      color: #d40000;
       font-weight: 900;
       text-transform: uppercase;
       text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
@@ -72,12 +72,12 @@
     .central-texto h3 {
       font-size: 22px;
       margin: 10px 0 0;
-      color: #0056b3; /* azul fuerte */
+      color: #0056b3;
       font-weight: bold;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
 
-    /* Fondo central */
+    /* Fondo */
     .fondo {
       background: url('portada.jpg') no-repeat center center;
       background-size: cover;
@@ -105,61 +105,21 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
       text-align: center;
       font-size: 14px;
-      cursor: pointer;
-      transition: transform 0.2s;
     }
 
-    .actividad:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.98);
+    .actividad img {
+      width: 100%;
+      border-radius: 8px;
     }
 
     .actividad strong {
       display: block;
       font-size: 15px;
-      margin-bottom: 5px;
+      margin-top: 5px;
       color: #000;
     }
 
-    /* Modal */
-    .modal {
-      display: none; 
-      position: fixed; 
-      z-index: 1000; 
-      padding-top: 60px; 
-      left: 0;
-      top: 0;
-      width: 100%; 
-      height: 100%; 
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .modal-content {
-      margin: auto;
-      display: block;
-      max-width: 80%;
-      max-height: 80%;
-    }
-
-    .modal video {
-      width: 80%;
-      max-height: 80%;
-      display: block;
-      margin: auto;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 35px;
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Responsables */
+    /* Footer */
     footer {
       background: linear-gradient(to right, #004080, #0073e6);
       color: white;
@@ -195,31 +155,35 @@
   <!-- SECCIÓN CON IMAGEN DE FONDO -->
   <div class="fondo">
     <div class="actividades">
-      <div class="actividad" onclick="abrirModal('actividad1.jpg')">
+      <!-- Actividad 1 -->
+      <div class="actividad">
+        <img src="act1.jpg" alt="Actividad 1">
         <strong>Actividad 1</strong>
         Armando mi DNI portátil
       </div>
-      <div class="actividad" onclick="abrirModal('actividad2.mp4')">
+
+      <!-- Actividad 2 -->
+      <div class="actividad">
+        <img src="act2.jpg" alt="Actividad 2">
         <strong>Actividad 2</strong>
         Con mi DNI accedo a mi derecho a la información
       </div>
-      <div class="actividad" onclick="abrirModal('actividad3.jpg')">
+
+      <!-- Actividad 3 -->
+      <div class="actividad">
+        <img src="act3.jpg" alt="Actividad 3">
         <strong>Actividad 3</strong>
         Encuentro con RENIEC:<br>
         Tu identidad cuenta
       </div>
-      <div class="actividad" onclick="abrirModal('actividad4.mp4')">
+
+      <!-- Actividad 4 -->
+      <div class="actividad">
+        <img src="act4.jpg" alt="Actividad 4">
         <strong>Actividad 4</strong>
         Con mi identidad celebro Tacna
       </div>
     </div>
-  </div>
-
-  <!-- MODAL -->
-  <div id="modal" class="modal">
-    <span class="close" onclick="cerrarModal()">&times;</span>
-    <img id="modal-img" class="modal-content" alt="">
-    <video id="modal-video" controls></video>
   </div>
 
   <!-- PIE DE PÁGINA -->
@@ -227,46 +191,6 @@
     Responsables: <span>Lourdes Gómez, Betty Escobedo, María Lourdes Medina, Marleni Cutipa, Bruna Molina</span>
   </footer>
 
-  <script>
-    function abrirModal(archivo) {
-      const modal = document.getElementById("modal");
-      const img = document.getElementById("modal-img");
-      const video = document.getElementById("modal-video");
-
-      modal.style.display = "block";
-
-      if (archivo.endsWith(".jpg") || archivo.endsWith(".png")) {
-        img.src = archivo;
-        img.style.display = "block";
-        video.style.display = "none";
-        video.pause();
-      } else if (archivo.endsWith(".mp4")) {
-        video.src = archivo;
-        video.style.display = "block";
-        img.style.display = "none";
-        video.play();
-      }
-    }
-
-    function cerrarModal() {
-      const modal = document.getElementById("modal");
-      const img = document.getElementById("modal-img");
-      const video = document.getElementById("modal-video");
-
-      modal.style.display = "none";
-      img.src = "";
-      video.src = "";
-      video.pause();
-    }
-
-    // Cerrar modal si se hace clic fuera del contenido
-    window.onclick = function(event) {
-      const modal = document.getElementById("modal");
-      if (event.target == modal) {
-        cerrarModal();
-      }
-    }
-  </script>
-
 </body>
 </html>
+
